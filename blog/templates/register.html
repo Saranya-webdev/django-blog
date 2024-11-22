@@ -1,0 +1,20 @@
+<form method="POST" action="{% url 'register' %}">
+    {% csrf_token %}
+    
+    <label for="username">Username:</label>
+    <input type="text" name="username" required>
+    
+    <label for="password">Password:</label>
+    <input type="password" name="password" required>
+    
+    <button type="submit">Register</button>
+</form>
+
+<!-- Display error or success messages -->
+{% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li style="color: red;">{{ message }}</li>  <!-- Red for error, you can customize the color -->
+        {% endfor %}
+    </ul>
+{% endif %}
